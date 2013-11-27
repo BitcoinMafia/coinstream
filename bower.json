@@ -1,0 +1,19 @@
+{
+  "name": "coinstream",
+  "version": "0.0.0",
+  "authors": [
+    "locksley <scottli_010@hotmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-select2": "*",
+    "angular-slider": "*"
+  }
+}

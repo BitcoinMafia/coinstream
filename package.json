@@ -1,0 +1,13 @@
+{
+  "name": "angularjs-seed",
+  "description": "A starter project for AngularJS",
+  "repository": "https://github.com/angular/angular-seed",
+  "devDependencies": {
+    "express": "~3.2.6",
+    "geoip": "0.4.12",
+    "ws": "0.4.x",
+    "websocket-client": "1.0.x",
+    "websocket": "1.0.x",
+    "newrelic": "*"
+  }
+}

@@ -1,0 +1,57 @@
+<table class="table table-striped table-hover list">
+	<thead>
+		<tr class="table-head-center">
+			<th>Tx Value</th>
+			<th>Tx Fee</th>
+			<th>Tx Hash</th>
+			<th>#Inputs</th>
+			<th>#Outputs</th>
+			<th>City</th>
+			<th>Country</th>
+			<th>IP</th>
+			<th>Timestamp</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class='text-center' ng-repeat="tx in transactions | sidebarFilter:sidebar | countryFilter:sidebar.selectedCountry | addressFilter:sidebar.addresses">
+			<td>
+				<div class="h4">
+					<span class='label label-success'>
+						{{(tx.value / 100000000).toPrecision(4)}} BTC
+					</span>
+				</div>
+			</td>
+			<td>
+				<div class="h4">
+					<span class='label label-default'>
+						{{(tx.fee / 100000000).toPrecision(4)}} BTC
+					</span>
+				</div>
+			</td>
+			<td>
+				<a href="http://www.blockchain.info/tx/{{tx.hash}}" target="_blank">
+					{{tx.hash.substring(0, 12)}}...
+				</a>
+			</td>
+			<td>
+				<div class='h6'>{{tx.numInputs}}</div>
+			</td>
+			<td>
+				<div class='h6'>{{tx.numOutputs}}</div>
+			</td>
+			<td>
+				<div class='h6'>{{tx.city}}</div>
+			</td>
+			<td>
+				<div class='h6'>{{tx.country}}</div>
+			</td>
+			<td>
+				<div class='h6'>{{tx.ip}}</div>
+			</td>
+			<td>
+				<div class='h6'>{{tx.time}}</div>
+			</td>
+		</tr>
+
+	</tbody>
+</table>

@@ -1,0 +1,95 @@
+<br><br>
+<div class="row">
+	<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">FILTERS</h3>
+    </div>
+    <div class="panel-body">
+    	<div class="row">
+    		<div class="col-md-4">
+    			<h6>Tx Value: </h6>
+	      </div>
+	      <div class="col-md-6">
+	      	<slider floor="0" ceiling="50" step="0.01" precision="2" ng-model="sidebar.value"></slider>
+	      </div>
+          <div class="col-md-2">
+            <h6>
+              >={{sidebar.value}}
+            </h6>
+          </div>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-4">
+    			<h6>Tx Fee: </h6>
+	      </div>
+	      <div class="col-md-6">
+	      	<slider floor="0" ceiling="0.001" step="0.0001" precision="4" ng-model="sidebar.fee"></slider>
+	      </div>
+          <div class="col-md-2">
+            <h6>>={{sidebar.fee}}</h6>
+          </div>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-4">
+    			<h6># Inputs: </h6>
+	      </div>
+	      <div class="col-md-6">
+	      	<slider floor="1" ceiling="10" step="1" precision="0" ng-model="sidebar.numInputs"></slider>
+	      </div>
+          <div class="col-md-2">
+            <h6>
+              >={{sidebar.numInputs}}
+            </h6>
+          </div>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-4">
+    			<h6># Outputs: </h6>
+	      </div>
+	      <div class="col-md-6">
+	      	<slider floor="1" ceiling="10" step="1" precision="0" ng-model="sidebar.numOutputs"></slider>
+	      </div>
+          <div class="col-md-2">
+            <h6>>={{sidebar.numOutputs}}</h6>
+          </div>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-4">
+    			<h6>Show Last: </h6>
+	      </div>
+	      <div class="col-md-6">
+	      	<slider floor="1" ceiling="100" step="1" precision="0" ng-model="sidebar.showLast"></slider>
+	      </div>
+          <div class="col-md-2">
+            <h6>{{sidebar.showLast}}</h6>
+          </div>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-4">
+    			<h6>Country: </h6>
+	        </div>
+	      <div class="col-md-8">
+          <select ui-select2 ng-model="sidebar.selectedCountry" data-placeholder="Select a Country">
+            <option value="">All</option>
+            <option ng-repeat="country in sidebar.countries" value="{{country}}">
+              {{country}}
+            </option>
+          </select>
+
+	      </div>
+    	</div>
+    	<div class="row">
+    		<div class="col-md-4">
+    			<h6>Addresses: </h6>
+	      </div>
+	      <div class="col-md-8">
+          <div ng-repeat="address in sidebar.addresses" ng-model="sidebar.addresses">
+            <br>
+            <input type="text" class="form-control" ng-model="address.addr">
+          </div>
+	      </div>
+    	</div>
+    </div>
+  </div>
+</div>
+</div>

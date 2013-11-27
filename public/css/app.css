@@ -1,0 +1,124 @@
+/* app css stylesheet */
+
+[ng-cloak] { display: none; }
+
+.nav-pills > li {
+	cursor: pointer;
+}
+
+.panel {
+  margin-top: 20px;
+}
+
+.panel-body .row {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.panel-body .col-md-2 {
+  padding-left: 0px;
+}
+
+.panel-body .col-md-2 h6 {
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.input-blank {
+  border: none;
+  outline: none;
+  padding: 0;
+  width: 100%;
+}
+
+.table-head-center th {
+  text-align: center;
+}
+
+.list tbody tr .label {
+  line-height: 2;
+}
+
+.info-window {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* SLIDER */
+
+slider {
+  display: inline-block;
+  position: relative;
+  height: 7px;
+  width: 100%;
+  margin: 14px 0 0 0;
+  vertical-align: middle;
+}
+slider span {
+  white-space: nowrap;
+  position: absolute;
+  display: inline-block;
+}
+slider span.base {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+}
+slider span.bar {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+slider span.bar.selection {
+  width: 0%;
+  z-index: 1;
+
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+slider span.pointer {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  top: -6px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  z-index: 2;
+  -webkit-border-radius: 1em/1em;
+  border-radius: 1em/1em;
+}
+slider span.pointer:after {
+  content: '';
+  background-color: #6f6f6f;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  -webkit-border-radius: 1em/1em;
+  border-radius: 1em/1em;
+}
+slider span.pointer:hover:after {
+  background-color: #e99002;
+}
+slider span.pointer.active:after {
+  background-color: #e99002;
+}
+slider span.bubble {
+  cursor: default;
+  top: -22px;
+  padding: 3px 3px 3px 3px;
+  font-size: 0.7em;
+  font-family: sans-serif;
+}
+slider span.bubble.selection {
+  top: 15px;
+}
+slider span.bubble.limit {
+  color: #808080;
+}

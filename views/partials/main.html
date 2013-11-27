@@ -1,0 +1,29 @@
+<div class="row">
+	<!-- Sidebar -->
+	<div class="col-md-3">
+		<sidebar></sidebar>
+	</div>
+	<!-- Main Body -->
+	<div class="col-md-9">
+		<tabset type="'pills'">
+			<tab heading="World Map">
+				<br>
+				<google-map
+					sidebar="map.sidebar"
+					center="map.center"
+					zoom="map.zoom"
+					markers="map.markers"
+					draggable="true"
+					style="height: 535px; width: 100%; display: block;">
+				</google-map>
+			</tab>
+			<tab heading="List">
+				<br>
+				<list></list>
+			</tab>
+			<div class="pull-right">
+				<h4 class='text-muted'>CONNECTION: <span class="text-{{connection.css}}">{{connection.status}}</span></h4>
+			</div>
+		</tabset>
+	</div>
+</div>
