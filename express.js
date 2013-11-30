@@ -2,7 +2,7 @@ var newrelic = require('newrelic');
 
 var express = require('express');
 var WebSocketServer = require('ws').Server
-var WebSocket = require('ws')
+var WebSocket = require('ws');
 var path = require('path')
 var http = require('http')
 var geoip = require("geoip");
@@ -66,27 +66,35 @@ wss.on('connection', function(ws) {
 
 
 // Socket Client
-var BlockchainSocket = new WebSocket("ws://ws.blockchain.info/inv")
+function start(location){
+  BlockchainSocket = new WebSocket(location)
 
-BlockchainSocket.onopen = function(msg) {
-	console.log("Blockchain.info Connected!")
-	BlockchainSocket.send(JSON.stringify({
-		"op":"unconfirmed_sub"
-	}))
+  BlockchainSocket.onopen = function(msg) {
+		console.log("Blockchain.info Connected!")
+		BlockchainSocket.send(JSON.stringify({
+			"op":"unconfirmed_sub"
+		}))
+	}
+
+  BlockchainSocket.onmessage = function(msg) {
+		var data = (new BlockchainInfo(msg)).parseTransaction()
+
+		// if (data.value > 25 * 100000000) {
+		// 	console.log(data)
+		// }
+		// console.log(wss)
+		wss.broadcast(data)
+
 }
 
-BlockchainSocket.onmessage = function(msg) {
-	var data = (new BlockchainInfo(msg)).parseTransaction()
 
-	// if (data.value > 25 * 100000000) {
-	// 	console.log(data)
-	// }
-	// console.log(wss)
-	wss.broadcast(data)
-
+  BlockchainSocket.onclose = function(){
+      //try to reconnect in 5 seconds
+    setTimeout(function(){start(location)}, 5000);
+  };
 }
 
-
+start("ws://ws.blockchain.info/inv")
 
 
 // Array Helper Module

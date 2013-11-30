@@ -10,11 +10,11 @@ angular.module('csApp.directives', [])
   };
 }])
 .directive('navbar', function(){
- return {
-  restrict: 'E',
-  templateUrl: 'partials/navbar.html',
-  transclude: true,
-};
+  return {
+    restrict: 'E',
+    templateUrl: 'partials/navbar.html',
+    transclude: true,
+  };
 })
 .directive('sidebar', function(){
   return {
